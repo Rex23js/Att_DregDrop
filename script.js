@@ -51,3 +51,40 @@ caixas.forEach((caixa) => {
     console.log(`Botão ${idBotao} inserido na posição correta.`);
   });
 });
+
+// Ordem correta esperada
+const ordemCorreta = [
+  "Recebimento",
+  "Conferencia",
+  "Armazenamento",
+  "Separacao",
+  "Expedicao",
+];
+
+// Botão "Verificar Ordem"
+const botaoVerificar = document.getElementById("verificarOrdem");
+botaoVerificar.addEventListener("click", verificarOrdem);
+
+function verificarOrdem() {
+  // Pegando a segunda caixa (onde os botões devem ser organizados)
+  const caixaDestino = document.querySelectorAll(".Caixerson")[1];
+
+  // Pegando os botões filhos dessa caixa
+  const botoesNaCaixa = Array.from(caixaDestino.querySelectorAll("button"));
+
+  // Pegando os IDs (nomes) desses botões
+  const ordemAtual = botoesNaCaixa.map((botao) => botao.id);
+
+  // Comparando com a ordem correta
+  const estaCorreta =
+    JSON.stringify(ordemAtual) === JSON.stringify(ordemCorreta);
+
+  // Mostrando a mensagem
+  if (estaCorreta) {
+    alert("✅ Ordem Correta!");
+  } else {
+    alert("❌ Ordem Incorreta! Tente novamente.");
+  }
+
+  console.log("Ordem atual:", ordemAtual);
+}

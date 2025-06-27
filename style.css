@@ -25,3 +25,8 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+#verificarOrdem {
+  background-color: royalblue;
+  margin-top: 20px;
+}
